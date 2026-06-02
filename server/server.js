@@ -3,6 +3,8 @@ const cors = require('cors');
 const fs = require("fs");
 const nodemailer = require("nodemailer");
 const { info } = require("console");
+const rateLimit = require("express-rate-limit");
+const validator = require("validator");
 require('dotenv').config({ path: './email.env' });
 
 const app = express();
@@ -65,7 +67,7 @@ function addToFile(newData, callback) {
 }
 
 // Handle form submissions
-app.post('/submit-form', (req, res) => {
+app.post('/submit-form', contactFormLimiter, (req, res) => {
     const formData = req.body;
 
     if (!req.body) {
@@ -80,13 +82,15 @@ app.post('/submit-form', (req, res) => {
             return res.status(500).send('Failed to save data');
         }
         
+        let cleanName = '';
+        let cleanMessage = '';
         if(formData.name){
-            const cleanName = validator.escape(name.trim());
+            cleanName = validator.escape(formData.name.trim());
         }
         if(formData.message){
-            const cleanMessage = validator.escape(message.trim());
+            cleanMessage = validator.escape(formData.message.trim());
         }
-        const message = `
+        const emailBody = `
 New form :
 
 Name: ${cleanName|| 'N/A'}
@@ -99,7 +103,7 @@ Message: ${cleanMessage || 'N/A'}`;
             from: process.env.EMAIL_USER,
             to: process.env.EMAIL_TO,
             subject: 'New entery',
-            text: message,
+            text: emailBody,
         };
         const mailClient = {
             from: process.env.EMAIL_USER,
