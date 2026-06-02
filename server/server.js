@@ -9,7 +9,7 @@ const app = express();
 const PORT = 3000;
 
 app.use(cors({
-  origin: '*', // or specify your frontend URL
+  origin: 'https://vaporo-store.vercel.app', // or specify your frontend URL
   methods: ['GET', 'POST', 'OPTIONS'],
   allowedHeaders: ['Content-Type']
 }));
