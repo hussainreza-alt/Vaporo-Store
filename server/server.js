@@ -2,35 +2,28 @@ const express = require("express");
 const cors = require('cors');
 const fs = require("fs");
 const nodemailer = require("nodemailer");
-const { info } = require("console");
 const rateLimit = require("express-rate-limit");
 const validator = require("validator");
-require('dotenv').config({ path: './email.env' });
+require('dotenv').config(); // Note: Removed local path so Railway relies on its dashboard variables
 
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-app.listen(PORT, '0.0.0.0', () => {
-  console.log(`Server running on ${PORT}`);
-});
-
 app.use(cors({
-  origin: 'https://vaporo-store.vercel.app', // or specify your frontend URL
+  origin: 'https://vaporo-store.vercel.app', 
   methods: ['GET', 'POST', 'OPTIONS'],
   allowedHeaders: ['Content-Type']
 }));
 app.use(express.json());
 
 const contactFormLimiter = rateLimit({
-  windowMs: 15 * 60 * 1000, // 15 minutes window
+  windowMs: 15 * 60 * 1000, 
   max: 5,
   message: { error: 'Too many messages sent from this IP. Please try again in 15 minutes.' },
   standardHeaders: true, 
   legacyHeaders: false,
 });
 
-
-// Setup mail transport
 const transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
@@ -39,25 +32,19 @@ const transporter = nodemailer.createTransport({
     }
 });
 
-// Save form data to data.json
 function addToFile(newData, callback) {
+    // If file doesn't exist, handle it safely instead of crashing
     fs.readFile('data.json', 'utf8', (err, data) => {
-        if (err) {
-            return callback(err);
-        }
-
         let jsonData = [];
-        if (!err && data.trim()){
+        
+        if (!err && data && data.trim()){
             try {
                 jsonData = JSON.parse(data);
             } catch (parseErr) {
                 jsonData = [];
-                return callback(parseErr);
-                
             }
         }
         
-
         jsonData.push(newData);
 
         fs.writeFile('data.json', JSON.stringify(jsonData, null, 2), (writeErr) => {
@@ -70,65 +57,53 @@ function addToFile(newData, callback) {
 app.post('/submit-form', contactFormLimiter, (req, res) => {
     const formData = req.body;
 
-    if (!req.body) {
-        return res.status(400).send('not getting body');
-    } else if(!formData || Object.keys(formData).length === 0){
-        return res.status(400).send('its empty');
+    if (!formData || Object.keys(formData).length === 0){
+        return res.status(400).json({ error: 'Form data is empty' });
     }
 
     addToFile(formData, (err) => {
         if (err) {
             console.error('File write error:', err);
-            return res.status(500).send('Failed to save data');
+            return res.status(500).json({ error: 'Failed to save data' });
         }
         
-        let cleanName = '';
-        let cleanMessage = '';
-        if(formData.name){
-            cleanName = validator.escape(formData.name.trim());
-        }
-        if(formData.message){
-            cleanMessage = validator.escape(formData.message.trim());
-        }
-        const emailBody = `
-New form :
+        let cleanName = formData.name ? validator.escape(formData.name.trim()) : 'N/A';
+        let cleanMessage = formData.message ? validator.escape(formData.message.trim()) : 'N/A';
+        let cleanEmail = formData.email ? formData.email.trim() : 'N/A';
 
-Name: ${cleanName|| 'N/A'}
-\n
-Email: ${formData.email || 'N/A'}
-\n
-Message: ${cleanMessage || 'N/A'}`;
+        const emailBody = `New form entry:\n\nName: ${cleanName}\nEmail: ${cleanEmail}\nMessage: ${cleanMessage}`;
 
         const mailOptions = {
             from: process.env.EMAIL_USER,
             to: process.env.EMAIL_TO,
-            subject: 'New entery',
+            subject: 'New Entry',
             text: emailBody,
         };
+
         const mailClient = {
             from: process.env.EMAIL_USER,
-            to: formData.email,
-            subject: "Response",
-            text: "We will contact you shortly",
-        }
+            to: cleanEmail,
+            subject: "Response Recieved",
+            text: "Thank you for reaching out. We will contact you shortly.",
+        };
 
-        transporter.sendMail(mailOptions, (emailErr) => {
-            if (emailErr) {
-                console.error('Email error:', emailErr);
-                return res.status(400).json({ status: "error", message: "Body is empty" });
-            }
+        // Fire both emails at the same time and respond once completed
+        Promise.all([
+            transporter.sendMail(mailOptions),
+            transporter.sendMail(mailClient)
+        ])
+        .then(() => {
+            return res.status(200).json({ status: "success", message: "We will contact you shortly" });
+        })
+        .catch((emailErr) => {
+            console.error('Email sending error:', emailErr);
+            // Even if email fails, data was saved successfully
+            return res.status(500).json({ status: "error", message: "Form saved, but notification email failed to dispatch." });
         });
-        transporter.sendMail(mailClient, (emailErr) => {
-            if(emailErr){
-                console.error("email error:", emailErr);
-                return res.status(400).json({ status: "error", message: "Body is empty" });
-            }
-        });
-        return res.json({status: "success", message: "We will contact you shortly"});
     });
 });
 
-// Start server
-app.listen(PORT, () => {
-    console.log(` Server is running at http://localhost:${PORT}`);
+// Start server (Only ONE listener at the bottom)
+app.listen(PORT, '0.0.0.0', () => {
+  console.log(`Server successfully running on port ${PORT}`);
 });
