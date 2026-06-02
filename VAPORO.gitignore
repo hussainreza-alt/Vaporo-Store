@@ -1,5 +1,5 @@
 node_modules
 dist
 .env
-server/node_modules
-web/node_modules
+server/.env
+web/.env
