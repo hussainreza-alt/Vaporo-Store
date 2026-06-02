@@ -236,7 +236,7 @@ export function Contact (){
                                 <img src="/pen.png" className=" h-7 absolute left-2 top-5 brightness-85 -translate-y-1/2" alt="" />
                                 <textarea name="message" required onChange={(e) => Setmessage(e.target.value)} id="" rows={5} placeholder="Your message" className=" w-full border border-green-600 rounded-lg p-1 pl-10 text-gray-300"></textarea>
                             </div>
-                            <button id="btn2" ref={btnsubmit} onClick={(e) => {
+                            <button id="btn2" type="submit" ref={btnsubmit} onClick={(e) => {
                                 e.preventDefault();
                                 handleSubmit(e);
                             }} className={` hover:text-white group w-full rounded-lg bg-green-600 text-black tracking-wide flex justify-between items-center p-2`}> <span ref={txtbutton} className=" font-medium mx-auto">SEND MESSAGE</span> <img src="/arr.png" ref={imgbuttonsubmit} className=" h-10 group-hover:scale-110 group-hover:invert" alt="" /></button>
