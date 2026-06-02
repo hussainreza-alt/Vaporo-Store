@@ -6,7 +6,11 @@ const { info } = require("console");
 require('dotenv').config({ path: './email.env' });
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 5000;
+
+app.listen(PORT, () => {
+  console.log(`Server running on ${PORT}`);
+});
 
 app.use(cors({
   origin: 'https://vaporo-store.vercel.app', // or specify your frontend URL
