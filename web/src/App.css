@@ -1,0 +1,62 @@
+@import "tailwindcss";
+#btn1, #btn1.active::after, #btn2, #btn2.active::after{
+  z-index: 1;
+  overflow: hidden;
+  cursor: pointer;
+  position: relative;
+}
+#btn1:hover{
+  color: black;
+  transition: all 0.5;
+}
+#btn1:hover img{
+    filter: brightness(0);
+}
+#btn2:hover{
+  color: white;
+  transition: ease-in 1;
+}
+#btn2 img, #btn2.active::after img{
+    transition: ease-in ;
+}
+#btn1:after {
+ content: "";
+ background: #00a63e;
+ position: absolute;
+ z-index: -1;
+ left: -20%;
+ right: -20%;
+ top: 0;
+ bottom: 0;
+ transform: skewX(-45deg) scale(0, 1);
+ transition: all 0.5s;
+}
+
+#btn2:after {
+ content: "";
+ background: black;
+ position: absolute;
+ z-index: -1;
+ left: -20%;
+ right: -20%;
+ top: 0;
+ bottom: 0;
+ transform: skewX(-45deg) scale(0, 1);
+ outline: none;
+ transition: all 0.5s;
+}
+#btn1:hover:after, #btn2:hover:after{
+ transform: skewX(-45deg) scale(1, 1);
+ -webkit-transition: all 0.5s;
+ transition: all 0.5s;
+}
+.bg-css{
+  background-image: linear-gradient(to bottom left, #16a34a, #000, #000);
+}
+
+.leaflet-container {
+  z-index: 0;
+}
+.leaflet-popup {
+  z-index: 1000;
+}

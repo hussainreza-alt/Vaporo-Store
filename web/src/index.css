@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Satoshi:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import "tailwindcss";
+@theme {
+  --font-satoshi: "Satoshi", sans-serif;
+  --font-inter: "inter", sans-serif;
+  --tracking-tightness: -0.04em;
+  --leading-tightness : 0.95;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;     /* Firefox */
+}
+
+body{
+  background: linear-gradient(
+  180deg,
+  #030507 0%,
+  #05080d 45%,
+  #020304 100%
+);
+  background-repeat: no-repeat;
+  overflow-x: hidden;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+body::-webkit-scrollbar{
+  display: none;
+}
+#root{
+  overflow-x: hidden;
+}
+#root::-webkit-scrollbar{
+  display: none;
+}
+#root{
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+html{
+  overflow-x: hidden;
+}
