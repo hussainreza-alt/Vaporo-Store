@@ -8,7 +8,7 @@ require('dotenv').config({ path: './email.env' });
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-app.listen(PORT, () => {
+app.listen(PORT, '0.0.0.0', () => {
   console.log(`Server running on ${PORT}`);
 });
 
@@ -18,6 +18,15 @@ app.use(cors({
   allowedHeaders: ['Content-Type']
 }));
 app.use(express.json());
+
+const contactFormLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000, // 15 minutes window
+  max: 5,
+  message: { error: 'Too many messages sent from this IP. Please try again in 15 minutes.' },
+  standardHeaders: true, 
+  legacyHeaders: false,
+});
+
 
 // Setup mail transport
 const transporter = nodemailer.createTransport({
@@ -70,15 +79,21 @@ app.post('/submit-form', (req, res) => {
             console.error('File write error:', err);
             return res.status(500).send('Failed to save data');
         }
-
+        
+        if(formData.name){
+            const cleanName = validator.escape(name.trim());
+        }
+        if(formData.message){
+            const cleanMessage = validator.escape(message.trim());
+        }
         const message = `
 New form :
 
-Name: ${formData.name || 'N/A'}
+Name: ${cleanName|| 'N/A'}
 \n
 Email: ${formData.email || 'N/A'}
 \n
-Message: ${formData.msg || 'N/A'}`;
+Message: ${cleanMessage || 'N/A'}`;
 
         const mailOptions = {
             from: process.env.EMAIL_USER,
