@@ -4,7 +4,7 @@ const fs = require("fs");
 const nodemailer = require("nodemailer");
 const rateLimit = require("express-rate-limit");
 const validator = require("validator");
-require('dotenv').config(); // Note: Removed local path so Railway relies on its dashboard variables
+require('dotenv').config(); 
 
 const app = express();
 const PORT = process.env.PORT || 5000;
