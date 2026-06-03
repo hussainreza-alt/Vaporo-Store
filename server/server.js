@@ -32,26 +32,26 @@ const transporter = nodemailer.createTransport({
     }
 });
 
-function addToFile(newData, callback) {
-    // If file doesn't exist, handle it safely instead of crashing
-    fs.readFile('data.json', 'utf8', (err, data) => {
-        let jsonData = [];
-        
-        if (!err && data && data.trim()){
-            try {
-                jsonData = JSON.parse(data);
-            } catch (parseErr) {
-                jsonData = [];
-            }
-        }
-        
-        jsonData.push(newData);
+// function addToFile(newData, callback) {
 
-        fs.writeFile('data.json', JSON.stringify(jsonData, null, 2), (writeErr) => {
-            callback(writeErr);
-        });
-    });
-}
+//     fs.readFile('data.json', 'utf8', (err, data) => {
+//         let jsonData = [];
+        
+//         if (!err && data && data.trim()){
+//             try {
+//                 jsonData = JSON.parse(data);
+//             } catch (parseErr) {
+//                 jsonData = [];
+//             }
+//         }
+        
+//         jsonData.push(newData);
+
+//         fs.writeFile('data.json', JSON.stringify(jsonData, null, 2), (writeErr) => {
+//             callback(writeErr);
+//         });
+//     });
+// }
 
 // Handle form submissions
 app.post('/submit-form', contactFormLimiter, (req, res) => {

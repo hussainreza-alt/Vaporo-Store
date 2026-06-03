@@ -71,7 +71,7 @@ export function Contact (){
         }
         const msgObj = { "name":name, "email":contact, "msg":message };
          try{
-            const res = await fetch ("http://localhost:3000/submit-form", {
+            const res = await fetch ("/api/submit-form", {
                 method: "POST",
                 headers:{
                 "Content-Type": "application/json"
