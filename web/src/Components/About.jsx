@@ -13,7 +13,7 @@ export function About (){
                     <span className=" text-base sm:text-lg md:text-xl text-green-700 font-inter font-semibold tracking-tight">ABOUT US</span>
                     <h3 className=" text-2xl sm:text-3xl md:text-4xl text-white font-bold">Build For People <br /> Who Appreciate <span className="text-green-600">Quality</span></h3>
                     <br />
-                    <p className=" text-lg sm:text-xl md:text-2xl wrap-break-word text-gray-300">VAPORO has founded with a simple goal - to deliver premium vaping products that combine quility, performace and satisfaction. <br /> <br /> We carefully select every product we offer to ensure you get the best experience, every time.</p>
+                    <p className=" text-left text-lg sm:text-xl md:text-2xl wrap-break-word text-gray-300">VAPORO has founded with a simple goal - to deliver premium vaping products that combine quility, performace and satisfaction. <br /> <br /> We carefully select every product we offer to ensure you get the best experience, every time.</p>
                     <br /><br />
 
                     {/* cards */}

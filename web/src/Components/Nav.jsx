@@ -97,7 +97,7 @@ export function Navbar (){
                 <div className="flex gap-1 w-[95%] md:w-[95%] justify-self-start">
                     <img src="/logo.png" className="w-6 sm:w-6 md:w-7" alt="" />
                     <div className=" text-xl sm:text-2xl md:text-3xl grid gap-0 h-fit w-fit">
-                        <h1 className=" text-xl sm:text-2xl md:text-3xl font-bold m-0 h-fit w-fit"><span className="text-white m-0">VAPO</span> <span className=" m-0 text-green-500">RO</span></h1>
+                        <h1 className=" text-xl sm:text-2xl md:text-3xl font-bold m-0 h-fit w-fit"><span className="text-white m-0">VAPO</span><span className=" m-0 text-green-500">RO</span></h1>
                         <i className="text-xs sm:text-sm h-fit m-0 md:text-base min-w-fit text-white">PREMIUM VAPE STORE</i>
                     </div>
                 </div>
@@ -123,9 +123,7 @@ export function Navbar (){
                         <img src="/loc.png" className=" h-3 sm:h-5 md:h-6 brightness-150 " alt="loc" />
                         <b>Visit Store</b>
                     </div>
-                    <div ref={menuBtnRef} className="h-full ml-4 w-fit grid sm:hidden justify-center items-center align-middle" onClick={() => {setIsMenuOpen(!isMenuOpen);
-                        console.log (isMenuOpen)
-                    }}>
+                    <div ref={menuBtnRef} className="h-full ml-4 w-fit grid sm:hidden justify-center items-center align-middle" onClick={() => {setIsMenuOpen(!isMenuOpen)}}>
                         <img src="/menu.png" alt="" className=" h-4 sm:h-5 md:h-6 invert cursor-pointer hover:shadow-sm" />
                     </div>
                 </div>

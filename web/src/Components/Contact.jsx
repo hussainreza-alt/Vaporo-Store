@@ -103,12 +103,12 @@ export function Contact (){
         <div id="contact" className=" w-screen pt-5 p-4 grid lg:grid-cols-2">
             <div className=" w-full justify-self-center lg:col-start-1 lg:col-end-2 grid">
                 <div className="grid self-start items-start w-full p-4">
-                    <div className="flex pl-4 font-inter tracking-tight leading-1 justify-self-start justify-center text-center gap-2 md:gap-4 text-green-600 align-middle items-center">
-                        <div className=" h-0.5 w-12 bg-green-600"></div> <p className="w-fit text-base sm:text-lg md:text-xl">CONTACT</p> <div className=" h-0.5 w-12 bg-green-600"></div>
+                    <div className="flex pl-4 justify-self-center font-inter tracking-tight leading-1 lg:justify-self-start justify-center text-center gap-2 md:gap-4 text-green-600 align-middle items-center">
+                        <div className=" h-0.5 w-18 lg:w-22 bg-green-600"></div> <p className="w-fit text-base sm:text-lg md:text-xl">CONTACT</p> <div className=" h-0.5 w-18 lg:w-22 bg-green-600"></div>
                     </div>
                     <br />
                     <div className=" grid pl-4 text-left w-full font-int0er mb-2 justify-self-center justify-center">
-                        <h2 className=" mt-2 font-inter font-semibold text-3xl sm:text-4xl md:text-5xl"><span className="text-white">Visit The Store <br /> Or Reach Out</span> <span className="text-green-600">Anytime</span></h2>
+                        <h2 className=" mt-2 font-inter text-left font-semibold text-3xl sm:text-4xl md:text-5xl"><span className="text-white">Visit The Store <br /> Or Reach Out</span> <span className="text-green-600">Anytime</span></h2>
                         <i className="text-gray-300 w-[90%] wrap-break-word font-extralight mt-4 text-base sm:text-lg md:text-xl">We're here to help! Whethe you have a question or just need a recomendation, feel free to reach out.</i>
                     </div>
                     <br /><br />

@@ -36,7 +36,7 @@ export function Header(){
                 <h2 className=" text-black h-fit mt-0 mb-1"><span className="text-white">Premium</span> <span className="text-green-600">Flavors</span></h2>
                 <h2 className=" text-black mt-1 mb-0 h-fit"><span className="text-white">Elevated</span> <span className="text-green-600">Experience</span></h2>
             </div>
-            <p className=" wrap-break-word w-[75%] m-4 md:m-2 text-gray-300 mt-2 ">Discover the best vape products, devices and flavors - curated for quility and satisfaction</p>
+            <p className=" wrap-break-word w-[75%] m-4 md:m-2 text-gray-300 mt-2 ">Discover the best vape products, devices and flavors - curated for quality and satisfaction</p>
             <br />
             <div className=" w-fit justify-self-start grid lg:flex gap-2 lg:gap-4 md:w-1/2 lg:w-full m-4 lg:mt-4 lg:m-2">
                 <div id="btn2" className=" group drop-shadow-[0_0_5px] shadow-green-400 justify-self-start w-full p-2 lg:p-4 rounded-lg bg-green-600 text-black font-inter flex text-center gap-1 align-middle items-center justify-center hover:shadow-sm hover:shadow-white pl-4 pr-4 cursor-pointer ">
