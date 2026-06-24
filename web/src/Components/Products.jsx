@@ -69,7 +69,7 @@ export function Product(){
                 </div>
 
                 {/* second card */}
-                <div ref={card2Ref} className="grid justify-self-center p-0 w-full md:w-full h-fit rounded-md border border-gray-600 shadow-md shadow-green-700 overflow-clip col-start-2 col-end-3 gap-0">
+                <div ref={card2Ref} className="grid justify-self-center p-0 w-full md:w-full h-full rounded-md border border-gray-600 shadow-md shadow-green-700 overflow-clip col-start-2 col-end-3 gap-0">
                     <img src="/vap2.png" className=" w-full h-52 md:h-72 justify-self-center" alt="" />
                     <div className=" grid gap-1 font-inter p-2 md:p-4">.
                         <h3 className="text-white font-semibold tracking-tight text-base sm:text-lg md:text-xl">VAPORO MAX 4000</h3>
@@ -112,10 +112,10 @@ export function Product(){
             </div>
             </div>
             <div className=" mt-4 lg:hidden flex gap-4 justify-center justify-self-center align-middle">
-                <div className= {`h-1 w-1 ${card1V? "bg-green-600" : "bg-gray-600"} `}></div>
-                <div className= {`h-1 w-1 ${card2V? "bg-green-600" : "bg-gray-600"} `}></div>
-                <div className= {`h-1 w-1 ${card3V? "bg-green-600" : "bg-gray-600"} `}></div>
-                <div className= {`h-1 w-1 ${card4V? "bg-green-600" : "bg-gray-600"} `}></div>
+                <div className= {`h-1 w-1 ${card1V? "bg-green-600" : "bg-gray-600"} rounded-full `}></div>
+                <div className= {`h-1 w-1 ${card2V? "bg-green-600" : "bg-gray-600"} rounded-full `}></div>
+                <div className= {`h-1 w-1 ${card3V? "bg-green-600" : "bg-gray-600"} rounded-full `}></div>
+                <div className= {`h-1 w-1 ${card4V? "bg-green-600" : "bg-gray-600"} rounded-full `}></div>
             </div>
             <div id="btn1" className=" mt-8 flex align-middle items-center md:gap-4 gap-2 p-4 text-white cursor-pointer justify-self-center rounded-xl border border-green-600 drop-shadow-md drop-shadow-green-700 font-inter text-sm sm:text-base md:text-lg">
                 <p className=" w-fit">VIEW ALL PRODUCTS</p>
