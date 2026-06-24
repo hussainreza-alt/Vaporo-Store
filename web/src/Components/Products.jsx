@@ -48,7 +48,7 @@ export function Product(){
                 <br />
                 <div className=" grid w-full md:w-[70%] font-int0er mb-2 justify-self-center justify-center text-center">
                     <h2 className=" mt-2 leading-5 font-inter font-semibold text-3xl sm:text-4xl md:text-5xl"><span className="text-white">Explore</span> <span className="text-green-600">Popular Picks</span></h2>
-                    <i className="text-gray-300 font-extralight mt-4 text-base sm:text-lg md:text-xl">Handpicked favourites from our collection. Premium quility, smooth hits unforgettable flavors</i>
+                    <i className="text-gray-300 font-extralight mt-4 text-base sm:text-lg md:text-xl">Handpicked favourites from our collection. Premium quality, smooth hits unforgettable flavors</i>
                 </div>
             </div>
             <div className=" w-full justify-self-start self-start grid overflow-x-scroll lg:overflow-x-hidden">
@@ -118,7 +118,7 @@ export function Product(){
                 <div className= {`h-1 w-1 ${card4V? "bg-green-600" : "bg-gray-600"} rounded-full `}></div>
             </div>
             <div id="btn1" className=" mt-8 flex align-middle items-center md:gap-4 gap-2 p-4 text-white cursor-pointer justify-self-center rounded-xl border border-green-600 drop-shadow-md drop-shadow-green-700 font-inter text-sm sm:text-base md:text-lg">
-                <p className=" w-fit">VIEW ALL PRODUCTS</p>
+                <p className=" w-fit">View All Products</p>
                 <img src="/arr.png" className=" w-10 invert" alt="" />
             </div>
         </div>
