@@ -56,7 +56,7 @@ export function Product(){
 
                 {/* first card */}
                 <div ref={card1Ref} className="grid justify-self-center p-0 w-full md:w-full h-full rounded-md border border-gray-600 shadow-md shadow-green-700 overflow-clip col-start-1 col-end-2 gap-0">
-                    <img src="/vap1.png" className=" w-full h-52 md:h-72 justify-self-center" alt="" />
+                    <img src="/vap1.png" loading="lazy" className=" w-full h-52 md:h-72 justify-self-center" alt="" />
                     <div className=" grid gap-1 font-inter p-2 md:p-4">.
                         <h3 className="text-white font-semibold tracking-tight text-base sm:text-lg md:text-xl">VAPORO NEXA 6000</h3>
                         <p className=" text-green-600 font-medium tracking-tight text-sm sm:text-lg md:text-xl">Mint Ice</p>
@@ -70,7 +70,7 @@ export function Product(){
 
                 {/* second card */}
                 <div ref={card2Ref} className="grid justify-self-center p-0 w-full md:w-full h-full rounded-md border border-gray-600 shadow-md shadow-green-700 overflow-clip col-start-2 col-end-3 gap-0">
-                    <img src="/vap2.png" className=" w-full h-52 md:h-72 justify-self-center" alt="" />
+                    <img src="/vap2.png" loading="lazy" className=" w-full h-52 md:h-72 justify-self-center" alt="" />
                     <div className=" grid gap-1 font-inter p-2 md:p-4">.
                         <h3 className="text-white font-semibold tracking-tight text-base sm:text-lg md:text-xl">VAPORO MAX 4000</h3>
                         <p className=" text-green-600 font-medium tracking-tight text-sm sm:text-lg md:text-xl">Watermelon Ice</p>
@@ -84,7 +84,7 @@ export function Product(){
 
                 {/* third card */}
                 <div ref={card3Ref} className="grid justify-self-center p-0 w-full h-full rounded-md border border-gray-600 shadow-md shadow-green-700 overflow-clip col-start-3 col-end-4 gap-0">
-                    <img src="/vap3.png" className=" w-full h-52 md:h-72 justify-self-center" alt="" />
+                    <img src="/vap3.png" loading="lazy" className=" w-full h-52 md:h-72 justify-self-center" alt="" />
                     <div className=" grid gap-1 font-inter p-2 md:p-4">.
                         <h3 className="text-white font-semibold tracking-tight text-base sm:text-lg md:text-xl">VAPORO E-LIQUID</h3>
                         <p className=" text-green-600 font-medium tracking-tight text-sm sm:text-lg md:text-xl">Mango Ice</p>
@@ -98,7 +98,7 @@ export function Product(){
 
                 {/* fourth card */}
                 <div ref={card4Ref} className="grid justify-self-center p-0 w-full md:w-full h-full rounded-md border border-gray-600 shadow-md shadow-green-700 overflow-clip col-start-4 col-end-5 gap-0">
-                    <img src="/vap4.png" className=" w-full h-52 md:h-72 justify-self-center" alt="" />
+                    <img src="/vap4.png" loading="lazy" className=" w-full h-52 md:h-72 justify-self-center" alt="" />
                     <div className=" grid gap-1 font-inter p-2 md:p-4">.
                         <h3 className="text-white font-semibold tracking-tight text-base sm:text-lg md:text-xl">VAPORO EDGE 8000</h3>
                         <p className=" text-green-600 font-medium tracking-tight text-sm sm:text-lg md:text-xl">Blue Razz Ice</p>
@@ -119,7 +119,7 @@ export function Product(){
             </div>
             <div id="btn1" className=" mt-8 flex align-middle items-center md:gap-4 gap-2 p-4 text-white cursor-pointer justify-self-center rounded-xl border border-green-600 drop-shadow-md drop-shadow-green-700 font-inter text-sm sm:text-base md:text-lg">
                 <p className=" w-fit">View All Products</p>
-                <img src="/arr.png" className=" w-10 invert" alt="" />
+                <img src="/arr.png" loading="lazy" className=" w-10 invert" alt="" />
             </div>
         </div>
         </>

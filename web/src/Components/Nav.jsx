@@ -91,7 +91,7 @@ export function Navbar (){
     }
     return(
         <>
-        <div id="nav" className={` bg-[rgba(10,10,10,0.45)] backdrop-blur-[14px] border border-[rgba(255,255,255,0.06)] w-[90%] sm:w-[95%] md:w-[95%] pl-4 pr-4 rounded-xl grid ${scrl? "fixed top-2 md:top-0 justify-self-center m-4 z-20 h-fit" : " h-fit m-4 justify-self-center"}`}>
+        <div id="nav" className={` bg-[rgba(10,10,10,0.45)] backdrop-blur-[14px] border border-[rgba(255,255,255,0.06)] w-[90%] sm:w-[95%] md:w-[95%] pl-4 pr-4 rounded-xl grid ${scrl? "fixed top-1 md:top-0 justify-self-center m-4 mt-1 z-20 h-fit" : " h-fit m-4 justify-self-center"}`}>
             <div className=" font-inter w-full justify-self-start align-middle h-fit m-0 pt-3 pb-3 pl-0 pr-0 sm:p-3 flex">
 
                 <div className="flex gap-1 w-[95%] md:w-[95%] justify-self-start">

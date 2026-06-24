@@ -13,7 +13,7 @@ export function MyFooter(){
                         <h6>VAPO<span className=" text-green-600">RO</span></h6>
                     </span>
                     <br />
-                    <p className=" md:w-fit wrap-break-word text-base md:text-lg text-gray-300">Premium vape products, accessories and e-liquid. Quality you can trust experience you'll love.</p>
+                    <p className=" md:w-fit wrap-break-word text-base md:text-lg text-gray-300">Premium vape products, accessories and e-liquid. Quality you can trust, an experience you'll love.</p>
                     <br />
                     <div className=" flex gap-4 justify-center flex-wrap">
                         <div className=" h-fit w-fit hover:drop-shadow-md hover:drop-shadow-green-700 cursor-pointer transition-transform ease-in-out duration-500 rounded-full p-3 border border-green-700">
@@ -42,7 +42,7 @@ export function MyFooter(){
                             <span className="text-green-600 font-semibold">&gt;</span><span>E-liquids</span>
                         </div>
                         <div className=" flex gap-4 text-base md:text-lg text-gray-200 hover:text-green-600 cursor-pointer">
-                            <span className="text-green-600 font-semibold">&gt;</span><span>Pods & Cartirages</span>
+                            <span className="text-green-600 font-semibold">&gt;</span><span>Pods & Cartridges</span>
                         </div>
                         <div className=" flex gap-4 text-base md:text-lg text-gray-200 hover:text-green-600 cursor-pointer">
                             <span className="text-green-600 font-semibold">&gt;</span><span>Coils & Accessories</span>
@@ -87,7 +87,7 @@ export function MyFooter(){
                             </div>
                             <div className="grid">
                                 <span className=" text-lg md:text-xl font-medium tracking-tight text-gray-300">Store Location</span>
-                                <span className=" text-base md:text-lg font-light transition-transform text-gray-200">123 Vape street, suite 101 <br />Los Angeles, CA 90001 </span>
+                                <span className=" text-base md:text-lg font-light transition-transform text-gray-200">123 Vape Street, suite 101 <br />Los Angeles, CA 90001 </span>
                             </div>
                         </div>
                         {/* fourth card */}
@@ -125,8 +125,8 @@ export function MyFooter(){
                     </div>
                 </div>
             </div>
-            <div className=" text-gray-300/40 flex-wrap justify-center flex gap-3 lg:gap-4">
-                <div>&copy; 2024 <span className=" text-green-600/40">VAPORO.</span>All rights reserved</div>
+            <div className=" text-gray-300/80 flex-wrap justify-center flex gap-3 lg:gap-4">
+                <div>&copy; {new Date().getFullYear()} <span className=" text-green-600/80">VAPORO.</span>All rights reserved</div>
                 <div className=" h-5 w-0.5 bg-gray-300/20"></div>
                 <div className=" cursor-pointer">Privacy Policy</div>
                 <div className=" h-5 w-0.5 bg-gray-300/20"></div>

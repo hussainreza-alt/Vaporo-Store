@@ -57,7 +57,7 @@ export function Header(){
             </div>           
             </div>
             <div className=" h-fit md:h-screen self-center m-0 p-0 top-[50%] grid justify-self-center lg:col-start-2 lg:col-end-3">
-                <img src="/vapor.png" alt="" className=" md:h-[85%] justify-self-center" />
+                <img src="/vapor.png" alt="" loading="eager" fetchPriority="true" className=" md:h-[85%] justify-self-center" />
             </div>
         </div>
         </>
